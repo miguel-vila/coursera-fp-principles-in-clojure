@@ -7,4 +7,5 @@
                  [org.clojure/core.typed "0.2.44"]]
   :plugins [[lein-midje "3.1.1"]
             [lein-typed "0.3.4"]]
-  :core.typed {:check [coursera-fp-principles-in-clojure.hw1]})
+  :core.typed {:check [coursera-fp-principles-in-clojure.hw1
+                       coursera-fp-principles-in-clojure.hw2]})

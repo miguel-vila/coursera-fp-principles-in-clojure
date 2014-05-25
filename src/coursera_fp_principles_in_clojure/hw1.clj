@@ -9,8 +9,6 @@
    (or (= c 0) (= c r)) 1
    :else (+ (pascal (- c 1) (- r 1)) (pascal c (- r 1)))))
 
-(pascal 1 2)
-
 (typed/ann balance [String -> Boolean])
 (defn balance [l]
   (typed/letfn> [balance-loop :- [(typed/Seq Character) Number -> Boolean]
@@ -25,7 +23,7 @@
     (let [seq-l (seq l)] ;seq-l is of type Option(Seq(Character))
       (if seq-l
         (balance-loop seq-l 0)
-        true))))
+        (throw (Exception. "Invalid string"))))))
 
 (typed/ann count-change [Number (typed/Coll Number) -> Number])
 (defn count-change [money coins]
@@ -35,5 +33,3 @@
                 (if (>= money f)
                   (+ (count-change (- money f) coins) (count-change money (rest coins)))
                   (count-change money (rest coins))))))
-
-(count-change 4 [1 2 3])
